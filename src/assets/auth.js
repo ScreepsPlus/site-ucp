@@ -31,7 +31,7 @@ const auth = {
   },
   async logout () {
     const { data: { status } } = await _axios.post('/api/auth/logout', {})
-    if(status === 'success') {
+    if (status === 'success') {
       this.user = null
       this.lastCheck = 0
     }

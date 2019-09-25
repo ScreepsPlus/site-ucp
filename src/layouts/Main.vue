@@ -12,7 +12,7 @@
       >
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer permanent app width="200">
+    <v-navigation-drawer permanent app width="200" :right="right">
       <Menu/>
     </v-navigation-drawer>
     <v-content>
@@ -20,6 +20,10 @@
         <slot></slot>
       </v-container>
     </v-content>
+    <v-footer app>
+      <v-btn @click="right = !right" icon title="Switch Menu Side"><v-icon>mdi-view-dashboard</v-icon></v-btn>
+      <v-spacer />
+    </v-footer>
   </v-app>
 </template>
 <script>
@@ -27,6 +31,11 @@ import Menu from '@/components/Menu'
 export default {
   components: {
     Menu
+  },
+  data () {
+    return {
+      right: false
+    }
   }
 }
 </script>
